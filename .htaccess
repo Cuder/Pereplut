@@ -1,0 +1,9 @@
+# Forbid listing of files
+Options -Indexes
+# Deny access to protected files
+<Files ~ "^(config|core).php$">
+	Deny from all
+</Files>
+# Deny access to content in subfolders
+RewriteEngine On
+RewriteRule ^(controller|libs|model|view)/.*(php|xml|tpl) - [R=403,L,NC]
