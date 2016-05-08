@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <strings>
-    <commonStrings>
-        <commonString>Pereplut</commonString>
-    </commonStrings>
+	<commonStrings>
+		<commonString>Pereplut</commonString>
+	</commonStrings>
+	<errors>
+		<error code="xss">Prevented an XSS attack through a GET variable.</error>
+		<error code="fileMime">Incorrect file format. Supported formats are .hmxz &amp; .zip.</error>
+		<error code="fileExists">The file already exists.</error>
+		<error code="fileMax">Maximum file size exceeded.</error>
+		<error code="fileExtension">Incorrect file extension. A file should have the .hmxz or .zip extension.</error>
+		<error code="fileError">Something went wrong during file upload. Please try again.</error>
+	</errors>
 </strings>

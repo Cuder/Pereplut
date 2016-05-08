@@ -1,7 +1,9 @@
 {* Header *}
 {include file="header.tpl"}
 
-It is {$title}
+{if isset($upload)}
+    {include file="loadFile.tpl"}
+{/if}
 
 {* Footer *}
 {include file="footer.tpl"}
