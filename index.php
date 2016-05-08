@@ -9,6 +9,7 @@ require_once $rootdir."/libs/Smarty/setup.php";
 
 if (isset($_POST["submit"])) {
 	require_once $rootdir."/model/loadFile.php";
+	require_once $rootdir."/model/unzipFile.php";
 }
 if (!isset($_POST["submit"]) || isset($_SESSION['errorCode'])) {
 	if (isset($_SESSION['errorCode'])) echo $_SESSION['errorCode']."<br>";

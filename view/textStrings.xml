@@ -10,5 +10,6 @@
 		<error code="fileMax">Maximum file size exceeded.</error>
 		<error code="fileExtension">Incorrect file extension. A file should have the .hmxz or .zip extension.</error>
 		<error code="fileError">Something went wrong during file upload. Please try again.</error>
+		<error code="unzip">Something went wrong when unzipping your file.</error>
 	</errors>
 </strings>
