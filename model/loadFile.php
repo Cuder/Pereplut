@@ -16,7 +16,7 @@ if (mime_content_type($_FILES["fileToUpload"]["tmp_name"]) != "application/zip")
 
 // Checking file extension
 $fileExtension = pathinfo($target_file, PATHINFO_EXTENSION);
-if ($fileExtension != "hmxz" && $fileExtension != "zip") {
+if (strtolower($fileExtension) != "hmxz" && strtolower($fileExtension) != "zip") {
 	$_SESSION['errorCode'] = "fileExtension";
 	fallback();
 }
