@@ -12,5 +12,8 @@
 		<error code="fileError">Something went wrong during file upload. Please try again.</error>
 		<error code="unzip">Something went wrong when unzipping your file.</error>
 		<error code="noHMXP">No H&amp;M project found in your file.</error>
+		<error code="noTopics">The Topics directory is missing. Please make sure that it is located in the root of the
+			archive.
+		</error>
 	</errors>
 </strings>
