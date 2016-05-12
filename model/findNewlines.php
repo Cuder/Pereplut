@@ -1,4 +1,5 @@
 <?php
+require_once $rootdir."/libs/xmlFunctions.php";
 $topicsDir = $unzipDir."/Topics/";
 
 if (!file_exists($topicsDir)) {
@@ -10,11 +11,7 @@ if (!file_exists($topicsDir)) {
 	foreach ($topics as $topicName) {
 		$topicPath = $topicsDir.$topicName;
 
-		$dom = new DOMDocument();
-		$dom->preserveWhiteSpace = false;
-		$dom->recover = true;
-		$dom->load($topicPath);
-		$dom->formatOutput = true;
+		$dom = createDom($topicPath);
 
 		$paraCount = ($dom->getElementsByTagName('para')->length) - 1;
 		$lastPara = $dom->getElementsByTagName('para')->item($paraCount);
