@@ -17,7 +17,7 @@ if (!file_exists($topicsDir)) {
 		$lastPara = $dom->getElementsByTagName('para')->item($paraCount);
 
 		if (
-			$lastPara->hasChildNodes() == null &&
+			hasChild($lastPara) == false &&
 			$lastPara->nodeValue == "" &&
 			$lastPara->parentNode->nodeName == "body" &&
 			$lastPara->previousSibling->nodeName != "header"
@@ -27,7 +27,7 @@ if (!file_exists($topicsDir)) {
 				while ($do == true) {
 					if (
 						$lastPara->previousSibling->nodeName == "para" &&
-						$lastPara->previousSibling->hasChildNodes() == null &&
+						hasChild($lastPara->previousSibling) == false &&
 						$lastPara->previousSibling->nodeValue == "" &&
 						$lastPara->previousSibling->nodeName != "header"
 					) {

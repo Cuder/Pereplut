@@ -9,7 +9,9 @@ if (!file_exists($projectPath)) {
 	$xpath = new DomXpath($dom);
 	$i = 0;
 	foreach ($xpath->query('//config-group[@name="custombuilds"][1]')->item(0)->childNodes as $childNode) {
-		$customBuilds[$i] = $childNode->nodeValue;
-		$i++;
+		if ($childNode->nodeType == XML_ELEMENT_NODE) {
+			$customBuilds[$i] = $childNode->nodeValue;
+			$i++;
+		}
 	}
 }
