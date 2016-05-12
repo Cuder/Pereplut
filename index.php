@@ -14,7 +14,11 @@ if (isset($_POST["submit"])) {
 	require_once $rootdir."/model/getProjectInfo.php";
 }
 if (!isset($_POST["submit"]) || isset($_SESSION['errorCode'])) {
-	if (isset($_SESSION['errorCode'])) echo $_SESSION['errorCode']."<br>";
+	if (isset($_SESSION['errorCode'])) {
+		echo $_SESSION['errorCode']."<br>";
+	} elseif (isset($upload) && empty($_FILES) && empty($_POST) && isset($_SERVER['REQUEST_METHOD']) && strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
+		echo "post_max_size exceeded<br>";
+	}
 	require_once $rootdir."/controller/loadFile.php";
 } else {
 	// A file has been successfully uploaded, displaying the form with settings

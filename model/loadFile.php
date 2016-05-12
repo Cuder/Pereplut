@@ -2,6 +2,12 @@
 $target_dir = $rootdir."/projects/";
 $target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
 
+// Checking file size
+if (!is_uploaded_file($_FILES["fileToUpload"]["tmp_name"])) {
+	$_SESSION['errorCode'] = "fileMax";
+	fallback();
+}
+
 // Checking if file already exists
 if (file_exists($target_file)) {
 	$_SESSION['errorCode'] = "fileExists";
@@ -9,7 +15,9 @@ if (file_exists($target_file)) {
 }
 
 // Checking mime type
-if (mime_content_type($_FILES["fileToUpload"]["tmp_name"]) != "application/zip") {
+$finfo = new finfo(FILEINFO_MIME);
+$mimeType = $finfo->file($_FILES["fileToUpload"]["tmp_name"]);
+if (!isset($mimeType) || $mimeType != "application/zip; charset=binary") {
 	$_SESSION['errorCode'] = "fileMime";
 	fallback();
 }
@@ -18,12 +26,6 @@ if (mime_content_type($_FILES["fileToUpload"]["tmp_name"]) != "application/zip")
 $fileExtension = pathinfo($target_file, PATHINFO_EXTENSION);
 if (strtolower($fileExtension) != "hmxz" && strtolower($fileExtension) != "zip") {
 	$_SESSION['errorCode'] = "fileExtension";
-	fallback();
-}
-
-// Checking file size
-if ($_FILES["fileToUpload"]["size"] > $maxFileSize) {
-	$_SESSION['errorCode'] = "fileMax";
 	fallback();
 }
 
