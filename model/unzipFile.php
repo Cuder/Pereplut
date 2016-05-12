@@ -5,7 +5,8 @@ if ($zip->open($target_file)) {
 	// Listing all files in archive to find an H&M project
 	$foundProject = false;
 	for ($i = 0; $i < $zip->numFiles; $i++) {
-		if (strpos($zip->getNameIndex($i),".hmxp") !== false) {
+		if (endsWith($zip->getNameIndex($i), ".hmxp")) {
+			$projectName = $zip->getNameIndex($i);
 			$foundProject = true;
 			break;
 		}
@@ -29,4 +30,10 @@ if ($zip->open($target_file)) {
 } else {
 	$_SESSION['errorCode'] = "unzip";
 	fallback();
+}
+
+function endsWith($haystack, $needle) {
+	$length = strlen($needle);
+	if ($length == 0) return true;
+	return (substr($haystack, -$length) === $needle);
 }
