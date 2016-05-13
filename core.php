@@ -41,3 +41,12 @@ function fallback($location = "")
 	header("Location: http://".$_SERVER['SERVER_NAME']."/".$location);
 	exit;
 }
+
+// Setting custom error handler to catch warnings
+set_error_handler(function($errno, $errstr, $errfile, $errline, array $errcontext) {
+	// error was suppressed with the @-operator
+	if (0 === error_reporting()) {
+		return false;
+	}
+	throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+});
