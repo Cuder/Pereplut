@@ -13,18 +13,11 @@ if ($zip->open($target_file)) {
 	}
 	if ($foundProject == false) {
 		unlink($target_file);
+		rmdir($target_dir);
 		$_SESSION['errorCode'] = "noHMXP";
 		fallback();
 	}
-	
-	$unzipDir = $target_dir.basename($_FILES["fileToUpload"]["name"],".".$fileExtension);
-	if (file_exists($unzipDir)) {
-		require_once $rootdir."/libs/removeDir.php";
-		removeDir($unzipDir);
-	}
-	mkdir($unzipDir);
-
-	$zip->extractTo($unzipDir);
+	$zip->extractTo($target_dir);
 	$zip->close();
 	unlink($target_file);
 } else {

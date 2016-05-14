@@ -15,5 +15,6 @@
 		<error code="noTopics">The Topics directory is missing. Please make sure that it is located in the root of the archive.</error>
 		<error code="noTOCs">Uploaded H&amp;M project contains no references to Table of Contents.</error>
 		<error code="TOCDamage">File with Table of Contents is missing.</error>
+		<error code="session">The session does not exist or has expired.</error>
 	</errors>
 </strings>

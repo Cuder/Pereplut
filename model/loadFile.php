@@ -1,5 +1,7 @@
 <?php
-$target_dir = $rootdir."/projects/";
+$sessionId = generateSession();
+$target_dir = $rootdir."/projects/".$sessionId."/";
+mkdir($target_dir);
 $target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
 
 // Checking file size

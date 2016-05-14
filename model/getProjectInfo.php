@@ -1,5 +1,16 @@
 <?php
-$projectPath = $unzipDir."/".$projectName;
+require_once $rootdir."/libs/xmlFunctions.php";
+
+$topicsDir = $target_dir."/Topics/";
+
+if (!file_exists($topicsDir)) {
+	$_SESSION['errorCode'] = "noTopics";
+	fallback();
+}
+
+$trailingCounter = trailingNL($topicsDir);
+
+$projectPath = $target_dir."/".$projectName;
 
 if (!file_exists($projectPath)) {
 	$_SESSION['errorCode'] = "noHMXP";
@@ -16,7 +27,7 @@ if (!file_exists($projectPath)) {
 	$xiInclude = $dom->getElementsByTagNameNS("http://www.w3.org/2001/XInclude","include");
 	$i = 0;
 	foreach ($xiInclude as $toc) {
-		$tocs[$i]["path"] = $unzipDir."/".$toc->getAttribute("href");
+		$tocs[$i]["path"] = $target_dir."/".$toc->getAttribute("href");
 		if (!file_exists($tocs[$i]["path"])) {
 			$_SESSION['errorCode'] = "TOCDamage";
 			fallback();

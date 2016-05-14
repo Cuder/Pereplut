@@ -50,3 +50,9 @@ set_error_handler(function($errno, $errstr, $errfile, $errline, array $errcontex
 	}
 	throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 });
+
+// Generating random session identifier
+function generateSession() {
+	$session = strtolower(substr(base64_encode(time()),0,-2).base64_encode($_SERVER['REMOTE_ADDR'])).rand(10,99);
+	return $session;
+}
