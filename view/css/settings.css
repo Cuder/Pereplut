@@ -1,0 +1,54 @@
+.generalSettings {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 12px;
+	border: solid lightgrey 1px;
+	border-radius: 8px;
+	padding: 5px;
+}
+
+.caption {
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: Georgia, serif;
+}
+
+.settings {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+td {
+	padding: 3px;
+}
+
+tr:nth-child(odd) {
+	background-color: #e2e1f1;
+}
+
+tr:hover {
+	background-color: #0b0074;
+	color: white;
+	font-weight: bold;
+}
+
+td:nth-child(2) {
+	text-align: center;
+}
+
+.button {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	alignment: center;
+	border-radius: 10px;
+	width: 200px;
+	font-size: large;
+	background-color: #e0f9e2;
+	margin-bottom: 10px;
+	font-family: Georgia, serif;
+	text-transform: uppercase;
+}

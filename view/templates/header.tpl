@@ -3,5 +3,9 @@
     <title>{$title}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="view/css/main.css">
+    {if isset($settings)}
+        <link rel="stylesheet" type="text/css" href="view/css/settings.css">
+        <link rel="stylesheet" type="text/css" href="view/css/folding.css">
+    {/if}
 </head>
 <body>

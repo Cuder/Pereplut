@@ -3,6 +3,35 @@
 	<commonStrings>
 		<commonString>Pereplut</commonString>
 	</commonStrings>
+	<captions>
+		<caption>General settings</caption>
+		<caption>Apend new build</caption>
+	</captions>
+	<settings>
+		<setting>Delete $trailingCounter trailing newlines</setting>
+		<setting>Capitalize topic headings</setting>
+		<setting>Log changes to file</setting>
+		<setting>New build name</setting>
+		<setting>Append to build</setting>
+		<setting>Append in</setting>
+		<setting>Append in table of contents</setting>
+		<setting>Append in topics</setting>
+		<setting>Rename</setting>
+		<setting>Delete from</setting>
+		<setting>If a ToC entry is included only in this build</setting>
+		<setting>Delete from topics</setting>
+		<setting>...including text</setting>
+	</settings>
+	<options>
+		<option>Generic table of contents</option>
+		<option>Table of Contents</option>
+		<option>Set this entry to "None"</option>
+		<option>Include this entry in all builds</option>
+	</options>
+	<buttons>
+		<button>Upload</button>
+		<button>Process</button>
+	</buttons>
 	<errors>
 		<error code="xss">Prevented an XSS attack through a GET variable.</error>
 		<error code="fileMime">Incorrect file format. Supported formats are .hmxz &amp; .zip.</error>
