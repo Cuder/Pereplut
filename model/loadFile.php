@@ -1,4 +1,13 @@
 <?php
+// Deleting obsolete & forgotten directories with projects
+require_once $rootdir."/libs/removeDir.php";
+$dirs = array_filter(glob($rootdir.'/projects/*'), 'is_dir');
+foreach ($dirs as $dir) {
+	if ((time()-stat($dir)['mtime']) > $projectStorageTime) {
+		removeDir($dir);
+	}
+}
+
 $sessionId = generateSession();
 $target_dir = $rootdir."/projects/".$sessionId."/";
 mkdir($target_dir);
