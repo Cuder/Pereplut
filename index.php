@@ -18,9 +18,15 @@ if (isset($_POST["upload"])) {
 			$_SESSION['errorCode'] = "session";
 			fallback();
 		}
+		require_once $rootdir."/libs/xmlFunctions.php";
+		
 		// Processing according to defined settings...
 		if (isset($_POST["trailing"])) {
 			require_once $rootdir."/model/removeNewlines.php";
+		}
+		// Deleting a build from ToC
+		if (isset($_POST["removeBuildFromToc"])) {
+			require_once $rootdir."/model/removeBuildFromToc.php";
 		}
 		#fallback();
 	} else {

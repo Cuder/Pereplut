@@ -1,5 +1,4 @@
 <?php
-require_once $rootdir."/libs/xmlFunctions.php";
 $topicsDir = $projectDir."/Topics/";
 
 if (!file_exists($topicsDir)) {

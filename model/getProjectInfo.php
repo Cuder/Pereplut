@@ -34,6 +34,7 @@ if (!file_exists($projectPath)) {
 		}
 		$domToc = createDom($tocs[$i]["path"]);
 		$tocs[$i]["title"] = $domToc->getElementsByTagName("map")->item(0)->getAttribute("title");
+		$tocs[$i]["file"] = basename($tocs[$i]["path"], "/");
 		$i++;
 	}
 	

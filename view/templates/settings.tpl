@@ -20,6 +20,15 @@
                 <td>{$settings.2}</td>
                 <td><input type="checkbox" name="log" title="Not implemented yet" disabled></td>
             </tr>
+            <tr>
+                <td>{$settings.10}</td>
+                <td>
+                    <select name="removeBuildFromTocMethod" title="">
+                        <option value="none">{$options.2}</option>
+                        <option value="all">{$options.3}</option>
+                    </select>
+                </td>
+            </tr>
         </table>
     </div>
 
@@ -79,25 +88,16 @@
                         <td>{$settings.9}{if !isset($tocs)} {$options.1}{/if}</td>
                         <td>
                             {if isset($tocs)}
-                                <select name="{$build}-removeToc[]" multiple size="{$tocs|@count}" title="Not implemented yet" disabled>
+                                <select name="removeBuildFromToc[]" multiple size="{$tocs|@count}" title="">
                                     {foreach from=$tocs item=toc}
-                                        <option value="{if $toc.title==""}generic{else}{$toc.title}{/if}">
+                                        <option value="{$build}/{$toc.file}">
                                             {if $toc.title==""}{$options.0}{else}{$options.1} "{$toc.title}"{/if}
                                         </option>
                                     {/foreach}
                                 </select>
                             {else}
-                                <input type="checkbox" name="{$build}-removeToc" title="Not implemented yet" disabled>
+                                <input type="checkbox" name="{$build}-removeToc" title="Not implemented yet">
                             {/if}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>{$settings.10}</td>
-                        <td>
-                            <select name="{$build}-toc-deletion-method" title="Not implemented yet" disabled>
-                                <option value="none">{$options.2}</option>
-                                <option value="all">{$options.3}</option>
-                            </select>
                         </td>
                     </tr>
                     <tr>
