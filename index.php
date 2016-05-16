@@ -28,6 +28,8 @@ if (isset($_POST["upload"])) {
 		if (isset($_POST["removeBuildFromToc"])) {
 			require_once $rootdir."/model/removeBuildFromToc.php";
 		}
+		// Archive a project, return it to the user and delete the temp directory
+		require_once $rootdir."/model/prepareProject.php";
 		#fallback();
 	} else {
 		fallback();
