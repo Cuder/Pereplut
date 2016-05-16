@@ -96,7 +96,7 @@
                                     {/foreach}
                                 </select>
                             {else}
-                                <input type="checkbox" name="{$build}-removeToc" title="Not implemented yet">
+                                <input type="checkbox" name="removeBuildFromToc[{$build}]" title="">
                             {/if}
                         </td>
                     </tr>

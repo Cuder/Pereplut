@@ -1,12 +1,17 @@
 <?php
 $removeBuildFromToc = array();
 
-foreach ($_POST["removeBuildFromToc"] as $removeItem) {
-	$explode = explode("/", $removeItem);
-	$build = $explode[0];
-	$toc = $explode[1];
-	if (!isset($removeBuildFromToc[$toc])) $removeBuildFromToc[$toc] = array();
-	array_push($removeBuildFromToc[$toc], $build);
+foreach ($_POST["removeBuildFromToc"] as $key => $removeItem) {
+	if (strpos($removeItem, "/") !== false) {
+		$explode = explode("/", $removeItem);
+		$build = $explode[0];
+		$toc = $explode[1];
+		if (!isset($removeBuildFromToc[$toc])) $removeBuildFromToc[$toc] = array();
+		array_push($removeBuildFromToc[$toc], $build);
+	} else {
+		if (!isset($removeBuildFromToc["table_of_contents.xml"])) $removeBuildFromToc["table_of_contents.xml"] = array();
+		array_push($removeBuildFromToc["table_of_contents.xml"], $key);
+	}
 }
 
 foreach ($removeBuildFromToc as $toc => $builds) {
