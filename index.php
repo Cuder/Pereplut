@@ -24,11 +24,15 @@ if (isset($_POST["upload"])) {
 		if (isset($_POST["trailing"])) {
 			require_once $rootdir."/model/removeNewlines.php";
 		}
-		// Deleting a build from ToC
+		// Deleting builds from ToC
 		if (isset($_POST["removeBuildFromToc"])) {
 			require_once $rootdir."/model/removeBuildFromToc.php";
 		}
-		// Archive a project, return it to the user and delete the temp directory
+		// Renaming builds
+		if (isset($_POST["renameBuild"])) {
+			require_once $rootdir."/model/renameBuilds.php";
+		}
+		// Archiving a project, returning it back to the user and deleting the temp directory
 		require_once $rootdir."/model/prepareProject.php";
 		#fallback();
 	} else {

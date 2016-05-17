@@ -82,7 +82,7 @@
                 <table class="settings">
                     <tr>
                         <td>{$settings.8}</td>
-                        <td><input type="text" name="{$build}-rename" title="Not implemented yet" disabled></td>
+                        <td><input type="text" name="renameBuild[{$build}]" title="{$tooltip}"></td>
                     </tr>
                     <tr>
                         <td>{$settings.9}{if !isset($tocs)} {$options.1}{/if}</td>
@@ -120,3 +120,14 @@
     <input type="submit" value="{$button}" name="process" class="button">
 
 </form>
+
+<script language="JavaScript">
+    // Prevents entering disallowed characters when defining builds' names
+    $("input").alphanum({
+        allowOtherCharSets: false,
+        allowSpace: false,
+        allowNewline: false,
+        allowNumeric: true,
+        maxLength: {$maxBuildNameLength}
+    });
+</script>

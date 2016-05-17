@@ -16,7 +16,7 @@
 }
 
 .settings {
-	width: 70%;
+	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -50,5 +50,9 @@ td:nth-child(2) {
 	background-color: #e0f9e2;
 	margin-bottom: 10px;
 	font-family: Georgia, serif;
+	text-transform: uppercase;
+}
+
+input[type=text] {
 	text-transform: uppercase;
 }

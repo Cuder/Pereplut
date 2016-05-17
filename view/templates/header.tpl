@@ -6,6 +6,8 @@
     {if isset($settings)}
         <link rel="stylesheet" type="text/css" href="view/css/settings.css">
         <link rel="stylesheet" type="text/css" href="view/css/folding.css">
+        <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.alphanum.js"></script>
     {/if}
 </head>
 <body>

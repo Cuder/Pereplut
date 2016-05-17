@@ -32,6 +32,9 @@
 		<button>Upload</button>
 		<button>Process</button>
 	</buttons>
+	<tooltips>
+		<tooltip>Allowed characters are Latin letters (A-Z) and digits (0-9). Reserved names: ALL, CHM, HXS, HTML, PDF, PRINT, EBOOK.</tooltip>
+	</tooltips>
 	<errors>
 		<error code="xss">Prevented an XSS attack through a GET variable.</error>
 		<error code="fileMime">Incorrect file format. Supported formats are .hmxz &amp; .zip.</error>
@@ -45,5 +48,8 @@
 		<error code="noTOCs">Uploaded H&amp;M project contains no references to Table of Contents.</error>
 		<error code="TOCDamage">File with Table of Contents is missing.</error>
 		<error code="session">The session does not exist or has expired.</error>
+		<error code="reservedBuildName">This build name is reserved.</error>
+		<error code="unallowedBuildName">A build name contains unallowable characters.</error>
+		<error code="BuildNameLength">A build name is longer than allowed.</error>
 	</errors>
 </strings>

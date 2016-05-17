@@ -85,3 +85,30 @@ function trailingNL($topicsDir, $delete = false) {
 	}
 	return $trailingCounter;
 }
+
+// Get information about ToCs
+function getTOCs($projectPath, $projectDir) {
+	$tocs = array();
+	
+	$dom = createDom($projectPath);
+	
+	$tocsCount = $dom->getElementsByTagNameNS("http://www.w3.org/2001/XInclude","include")->length;
+	if (!$tocsCount) {
+		$_SESSION['errorCode'] = "noTOCs";
+		fallback();
+	}
+	$xiInclude = $dom->getElementsByTagNameNS("http://www.w3.org/2001/XInclude","include");
+	$i = 0;
+	foreach ($xiInclude as $toc) {
+		$tocs[$i]["path"] = $projectDir."/".$toc->getAttribute("href");
+		if (!file_exists($tocs[$i]["path"])) {
+			$_SESSION['errorCode'] = "TOCDamage";
+			fallback();
+		}
+		$domToc = createDom($tocs[$i]["path"]);
+		$tocs[$i]["title"] = $domToc->getElementsByTagName("map")->item(0)->getAttribute("title");
+		$tocs[$i]["file"] = basename($tocs[$i]["path"], "/");
+		$i++;
+	}
+	return $tocs;
+}
