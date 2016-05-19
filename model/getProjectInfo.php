@@ -1,14 +1,7 @@
 <?php
 require_once $rootdir."/libs/xmlFunctions.php";
 
-$topicsDir = $target_dir."/Topics/";
-
-if (!file_exists($topicsDir)) {
-	$_SESSION['errorCode'] = "noTopics";
-	fallback();
-}
-
-$trailingCounter = trailingNL($topicsDir);
+$trailingCounter = trailingNL($target_dir);
 
 $projectPath = $target_dir."/".$projectName;
 

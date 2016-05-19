@@ -22,7 +22,7 @@ if (isset($_POST["upload"])) {
 		
 		// Processing according to defined settings...
 		if (isset($_POST["trailing"]) && $_POST["trailing"] == "on") {
-			require_once $rootdir."/model/removeNewlines.php";
+			trailingNL($projectDir, $delete = true);
 		}
 		// Renaming builds
 		if (isset($_POST["renameBuild"])) {

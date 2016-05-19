@@ -130,19 +130,10 @@ foreach ($tocs as $toc) {
 }
 
 // Renaming builds in topics
-$topicsDir = $projectDir."/Topics/";
+$topics = getTopics($projectDir);
 
-if (!file_exists($topicsDir)) {
-	$_SESSION['errorCode'] = "noTopics";
-	fallback();
-}
-
-$topics = array_diff(scandir($topicsDir), array('..', '.'));
-
-foreach ($topics as $topicName) {
+foreach ($topics as $topicPath) {
 	$changedTopic = false;
-
-	$topicPath = $topicsDir.$topicName;
 	$dom = createDom($topicPath);
 	$xpath = new DomXpath($dom);
 	foreach ($xpath->query('//conditional-text[@type="IF"]') as $condition) {

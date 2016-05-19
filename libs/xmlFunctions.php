@@ -31,13 +31,11 @@ function repairVariables($path2XML) {
 }
 
 // Find & remove trailing newlines
-function trailingNL($topicsDir, $delete = false) {
-	$topics = array_diff(scandir($topicsDir), array('..', '.'));
+function trailingNL($projectDir, $delete = false) {
+	$topics = getTopics($projectDir);
 	$trailingCounter = 0;
 
-	foreach ($topics as $topicName) {
-
-		$topicPath = $topicsDir.$topicName;
+	foreach ($topics as $topicPath) {
 		$dom = createDom($topicPath);
 
 		$paraCount = ($dom->getElementsByTagName('para')->length) - 1;
@@ -111,4 +109,15 @@ function getTOCs($projectPath, $projectDir) {
 		$i++;
 	}
 	return $tocs;
+}
+
+// Get list of paths to topic files
+function getTopics($projectDir) {
+	$topicsDir = $projectDir."/Topics/";
+	if (!file_exists($topicsDir)) {
+		$_SESSION['errorCode'] = "noTopics";
+		fallback();
+	}
+	$topics = glob($topicsDir.'*.xml', GLOB_BRACE);
+	return $topics;
 }
