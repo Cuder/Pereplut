@@ -14,7 +14,7 @@
             {/if}
             <tr>
                 <td>{$settings.1}</td>
-                <td><input type="checkbox" name="capitalize" title="Not implemented yet" disabled></td>
+                <td><input type="checkbox" name="capitalize" title="{$tooltips.0}"></td>
             </tr>
             <tr>
                 <td>{$settings.2}</td>
@@ -82,7 +82,7 @@
                 <table class="settings">
                     <tr>
                         <td>{$settings.8}</td>
-                        <td><input type="text" name="renameBuild[{$build}]" title="{$tooltip}"></td>
+                        <td><input type="text" name="renameBuild[{$build}]" title="{$tooltips.1}"></td>
                     </tr>
                     <tr>
                         <td>{$settings.9}{if !isset($tocs)} {$options.1}{/if}</td>

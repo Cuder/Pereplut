@@ -33,6 +33,7 @@
 		<button>Process</button>
 	</buttons>
 	<tooltips>
+		<tooltip>Capitalize headers of topics in English according to the Chicago Manual of Style, chapter 8.157 "Principles of headline-style capitalization".</tooltip>
 		<tooltip>Allowed characters are Latin letters (A-Z) and digits (0-9). Reserved names: ALL, CHM, HXS, HTML, PDF, PRINT, EBOOK.</tooltip>
 	</tooltips>
 	<errors>

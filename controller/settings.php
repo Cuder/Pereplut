@@ -15,4 +15,4 @@ if ($trailingCounter > 0) {
 	$smarty->assign('settingsTrailing',$settingTrailing);
 }
 $smarty->assign('maxBuildNameLength',$maxBuildNameLength);
-$smarty->assign('tooltip',$textStrings->tooltips->tooltip[0]);
+$smarty->assign('tooltips',$textStrings->tooltips->tooltip);

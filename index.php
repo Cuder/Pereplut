@@ -21,16 +21,20 @@ if (isset($_POST["upload"])) {
 		require_once $rootdir."/libs/xmlFunctions.php";
 		
 		// Processing according to defined settings...
-		if (isset($_POST["trailing"])) {
+		if (isset($_POST["trailing"]) && $_POST["trailing"] == "on") {
 			require_once $rootdir."/model/removeNewlines.php";
+		}
+		// Renaming builds
+		if (isset($_POST["renameBuild"])) {
+			require_once $rootdir."/model/renameBuilds.php";
 		}
 		// Deleting builds from ToC
 		if (isset($_POST["removeBuildFromToc"])) {
 			require_once $rootdir."/model/removeBuildFromToc.php";
 		}
-		// Renaming builds
-		if (isset($_POST["renameBuild"])) {
-			require_once $rootdir."/model/renameBuilds.php";
+		// Capitalizing ToC headings
+		if (isset($_POST["capitalize"]) && $_POST["capitalize"] == "on") {
+			require_once $rootdir."/model/topicCapitalization.php";
 		}
 		// Archiving a project, returning it back to the user and deleting the temp directory
 		require_once $rootdir."/model/prepareProject.php";
